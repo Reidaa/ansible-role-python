@@ -12,19 +12,19 @@ The following variables will change the behavior of this role (default values
 are shown below):
 
 ```yaml
-# Python SDK version number
+# Python version number
 python_version: "3.12.1"
 
-# Mirror to download the Python SDK from
+# Mirror to download the Python from
 python_mirror: "https://www.python.org/ftp/python"
 
-# Directory to store the files downloaded for Python SDK installation
+# Directory to store the files downloaded for Python installation
 python_download_dir: "/tmp"
 ```
 
-### Supported Python SDK Versions
+### Supported Python versions
 
-The following versions of the Python SDK are supported without any additional
+The following versions of Python are supported without any additional
 configuration:
 
 * `3.12.1`
