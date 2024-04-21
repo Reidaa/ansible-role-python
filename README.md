@@ -41,12 +41,12 @@ None.
 ```yaml
 - hosts: all
   roles:
-     - role: python
+     - role: reidaa.python
 ```
 
 ```yaml
 - hosts: all
   roles:
-     - role: python
+     - role: reidaa.python
        python_version: "3.9.18"
 ```
