@@ -1,6 +1,6 @@
 # Ansible Role: Python
 
-Role to download and install [Python](https://www.python.org/) interpreter.
+Role to download and install the [Python](https://www.python.org/) programming language.
 
 ## Requirements
 
