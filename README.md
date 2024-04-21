@@ -15,7 +15,7 @@ are shown below):
 # Python version number
 python_version: "3.12.1"
 
-# Mirror to download the Python from
+# Mirror to download Python from
 python_mirror: "https://www.python.org/ftp/python"
 
 # Directory to store the files downloaded for Python installation
