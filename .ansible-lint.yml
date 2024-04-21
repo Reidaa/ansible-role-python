@@ -1,0 +1,14 @@
+---
+exclude_paths:
+  - .git/
+  - .vscode/
+  - .idea/
+  - .devcontainer/
+
+skip_list:
+  - var-naming[no-role-prefix]
+  - var-naming[pattern]
+  - name[casing]
+  - yaml[line-length]
+  - role-name[path]
+  - name[template]
