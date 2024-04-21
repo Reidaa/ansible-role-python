@@ -1,0 +1,12 @@
+---
+- name: Delete archive
+  become: true
+  ansible.builtin.file:
+    path: "{{ python_download_dir }}/{{ python_archive_filename }}"
+    state: "absent"
+
+- name: Delete directory
+  become: true
+  ansible.builtin.file:
+    path: "{{ python_download_dir }}/{{ python_package_filename }}"
+    state: "absent"

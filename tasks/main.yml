@@ -1,0 +1,44 @@
+---
+- name: Load version vars
+  ansible.builtin.include_vars: "versions/{{ python_version }}.yml"
+
+- name: Assert version vars
+  ansible.builtin.assert:
+    that:
+      - "python_md5sum not in (None, '')"
+
+- name: Package manager specific tasks
+  ansible.builtin.include_tasks: "pckg_managers/{{ ansible_pkg_mgr }}.yml"
+
+- name: Install Python {{ python_version }}
+  block:
+    - name: Download Python {{ python_version }} source
+      ansible.builtin.get_url:
+        url: "{{ python_mirror }}/{{ python_version }}/{{ python_archive_filename }}"
+        dest: "{{ python_download_dir }}/{{ python_archive_filename }}"
+        checksum: "md5:{{ python_md5sum }}"
+        mode: "0755"
+    - name: Extract Python SDK
+      become: true
+      ansible.builtin.unarchive:
+        src: "{{ python_download_dir }}/{{ python_archive_filename }}"
+        remote_src: true
+        dest: "{{ python_download_dir }}"
+        owner: root
+        group: root
+        list_files: true
+    - name: configure
+      become: true
+      ansible.builtin.command:
+        chdir: "{{ python_download_dir }}/{{ python_package_filename }}"
+        cmd: "./configure --enable-optimizations"
+      changed_when: true
+    - name: make altinstall
+      become: true
+      community.general.make:
+        chdir: "{{ python_download_dir }}/{{ python_package_filename }}"
+        target: altinstall
+
+  always:
+    - name: Include cleanup tasks
+      ansible.builtin.include_tasks: "cleanup.yml"

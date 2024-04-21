@@ -1,0 +1,9 @@
+---
+# Python SDK version number
+python_version: "3.12.1"
+
+# Mirror to download the Python SDK from
+python_mirror: "https://www.python.org/ftp/python"
+
+# Directory to store the files downloaded for Python SDK installation
+python_download_dir: "/tmp"

@@ -1,0 +1,6 @@
+---
+# Filename of the Python package
+python_package_filename: "Python-{{ python_version }}"
+
+# Filename of the Python archive
+python_archive_filename: "Python-{{ python_version }}.tgz"

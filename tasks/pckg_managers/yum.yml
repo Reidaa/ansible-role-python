@@ -1,0 +1,47 @@
+---
+- name: Install Python build deps
+  become: true
+  ansible.builtin.yum:
+    name:
+      - gcc
+      - make
+      - patch
+      - zlib-devel
+      - bzip2
+      - bzip2-devel
+      - readline-devel
+      - sqlite
+      - sqlite-devel
+      - openssl-devel
+      - tk-devel
+      - libffi-devel
+      - xz-devel
+    state: present
+    update_cache: true
+
+- name: Install unarchive dependencies
+  become: true
+  ansible.builtin.yum:
+    name:
+      - gzip
+      - tar
+    state: present
+# - name: Update Python build dependencies
+#   become: true
+#   ansible.builtin.yum:
+#     name:
+#       - gcc
+#       - make
+#       - patch
+#       - zlib-devel
+#       - bzip2
+#       - bzip2-devel
+#       - readline-devel
+#       - sqlite
+#       - sqlite-devel
+#       - openssl-devel
+#       - tk-devel
+#       - libffi-devel
+#       - xz-devel
+#     state: latest
+#     update_only: true
